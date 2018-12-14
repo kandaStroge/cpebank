@@ -36,3 +36,9 @@ Route::get('/admin/4', 'AdminIndexController@test4');
 Route::get('/admin/5', 'AdminIndexController@test5');
 Route::get('/admin/6', 'AdminIndexController@test6');
 Route::get('/admin/7', 'AdminIndexController@test7');
+
+Route::get('/admin/promotion', 'AdminIndexController@promotion');
+Route::post('/admin/promotion/del', 'AdminIndexController@promotion_del');
+Route::post('/admin/promotion/add', 'AdminIndexController@promotion_add');
+
+Route::post('/admin/promotion/edit', 'AdminIndexController@promotion_edit');

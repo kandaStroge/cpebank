@@ -29,8 +29,8 @@
                     'icon' => 'bar-chart-2'
                 ),
                 array(
-                    'name' => '5',
-                    'url' => 'admin/5',
+                    'name' => 'โปรโมชั่น/แนะนำบริการ',
+                    'url' => 'admin/promotion',
                     'icon' => 'layers'
                 ),
                 array(
