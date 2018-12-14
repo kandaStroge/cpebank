@@ -42,3 +42,5 @@ Route::post('/admin/promotion/del', 'AdminIndexController@promotion_del');
 Route::post('/admin/promotion/add', 'AdminIndexController@promotion_add');
 
 Route::post('/admin/promotion/edit', 'AdminIndexController@promotion_edit');
+Route::get('user','AdminUser@index');
+Route::get('user/officer/{id}','AdminUser@showOfficer');
