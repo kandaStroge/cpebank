@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrateTest extends Migration
+class CreateCustomer extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CrateTest extends Migration
      */
     public function up()
     {
-        $file = realpath(__DIR__.'./mydb.sql');
-        DB::unprepared( file_get_contents($file) );
+        Schema::create('customer', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->integer('user_id')->unique()->unsigned();
+
+        });
     }
 
     /**
@@ -24,8 +27,6 @@ class CrateTest extends Migration
      */
     public function down()
     {
-        Schema::table('test', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('customer');
     }
 }
