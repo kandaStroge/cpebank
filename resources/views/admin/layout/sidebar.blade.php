@@ -20,17 +20,27 @@
                 ),
                 array(
                     'name' => 'โปรโมชั่น',
-                    'url' => 'admin/branch/manage',
+                    'url' => 'admin//branch/manage',
                     'icon' => 'users'
                 ),
                 array(
-                    'name' => '5',
-                    'url' => 'admin/bank/',
+                    'name' => '4',
+                    'url' => 'admin/4',
                     'icon' => 'bar-chart-2'
                 ),
                 array(
+                    'name' => '5',
+                    'url' => 'admin/5',
+                    'icon' => 'layers'
+                ),
+                array(
                     'name' => '6',
-                    'url' => 'admin/bank/',
+                    'url' => 'admin/6',
+                    'icon' => 'layers'
+                ),
+                array(
+                    'name' => '7',
+                    'url' => 'admin/7',
                     'icon' => 'layers'
                 ),
             );
