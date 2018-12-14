@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/admin', function(){
+    return view('admin.home.index',[
+        'title' => 'Admin Dashboard',
+        'content_header'=> 'Admin Dashboard',
+        'banks' => 'CPEBank',
+        'name' => 'OK',
+
+    ]);
+});
