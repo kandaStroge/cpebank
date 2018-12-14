@@ -15,10 +15,10 @@ class CreateUser extends Migration
     {
         Schema::create('user', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('frname', 45);
+            $table->string('fname', 45);
             $table->string('lname', 45);
             $table->date('dob')->nullable();
-            $table->enum('gender', ['man', 'woman']);
+            $table->enum('gender', ['male', 'female']);
             $table->string('phone', 10);
             $table->text('home_addr');
             $table->text('work_addr');

@@ -36,3 +36,6 @@ Route::get('/admin/4', 'AdminIndexController@test4');
 Route::get('/admin/5', 'AdminIndexController@test5');
 Route::get('/admin/6', 'AdminIndexController@test6');
 Route::get('/admin/7', 'AdminIndexController@test7');
+
+Route::get('user','AdminUser@index');
+Route::get('user/officer/{id}','AdminUser@showOfficer');
