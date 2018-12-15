@@ -35,4 +35,22 @@ Route::post('/admin/branch/delete', 'AdminBranchController@delete');
 Route::get('/admin/4', 'AdminIndexController@test4');
 Route::get('/admin/5', 'AdminIndexController@test5');
 Route::get('/admin/6', 'AdminIndexController@test6');
-Route::get('/admin/7', 'AdminIndexController@test7');
+
+Route::get('/admin/loan', 'AdminLoanController@loan');
+Route::post('/admin/loan/add', 'AdminLoanController@add');
+Route::post('/admin/loan/del', 'AdminLoanController@del');
+
+
+Route::get('/admin/promotion', 'AdminIndexController@promotion');
+Route::post('/admin/promotion/del', 'AdminIndexController@promotion_del');
+Route::post('/admin/promotion/add', 'AdminIndexController@promotion_add');
+
+
+/*--- Admin User manage ---*/
+Route::get('/admin/user', 'AdminUserController@index');
+Route::get('/admin/user/pwd-print', 'AdminUserController@printpwd');
+Route::get('/admin/user/show', 'AdminUserController@show');
+Route::match(['get', 'post'], '/admin/user/add', 'AdminUserController@add');
+Route::match(['get', 'post'], '/admin/user/edit', 'AdminUserController@edit');
+Route::match(['get', 'post'], '/admin/user/edit/send', 'AdminUserController@edit_send');
+Route::post('/admin/user/delete', 'AdminUserContoller@delete');

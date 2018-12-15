@@ -9,18 +9,18 @@
                     'icon' => 'home'
                 ),
                 array(
-                    'name' => 'Loan',
+                    'name' => 'กู้ยืมเงิน',
                     'url' => 'admin/branch',
                     'icon' => 'file'
                 ),
                 array(
                     'name' => 'ข้อมูลลูกค้า',
-                    'url' => 'admin/branch',
+                    'url' => 'admin/user',
                     'icon' => 'shopping-cart'
                 ),
                 array(
                     'name' => 'โปรโมชั่น',
-                    'url' => 'admin//branch/manage',
+                    'url' => 'admin/promotion/manage',
                     'icon' => 'users'
                 ),
                 array(
@@ -29,8 +29,8 @@
                     'icon' => 'bar-chart-2'
                 ),
                 array(
-                    'name' => '5',
-                    'url' => 'admin/5',
+                    'name' => 'โปรโมชั่น/แนะนำบริการ',
+                    'url' => 'admin/promotion',
                     'icon' => 'layers'
                 ),
                 array(
@@ -39,8 +39,8 @@
                     'icon' => 'layers'
                 ),
                 array(
-                    'name' => '7',
-                    'url' => 'admin/7',
+                    'name' => 'Loan การกู้ยืม',
+                    'url' => 'admin/loan',
                     'icon' => 'layers'
                 ),
             );
