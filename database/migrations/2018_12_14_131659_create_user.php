@@ -20,8 +20,8 @@ class CreateUser extends Migration
             $table->date('dob')->nullable();
             $table->enum('gender', ['male', 'female']);
             $table->string('phone', 10);
-            $table->text('home_addr');
-            $table->text('work_addr');
+            $table->text('home_addr')->nullable();
+            $table->text('work_addr')->nullable();
             $table->string('email',60)->unique();
             $table->string('password',60);
             $table->string('token',60)->default(null)->nullable();

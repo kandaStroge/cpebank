@@ -11,6 +11,6 @@ class AdminUser extends Controller
         return User::all();
     }
     public function showOfficer($id){
-        return User::find('0')->officers();
+        return User::find($id)->officers;
     }
 }

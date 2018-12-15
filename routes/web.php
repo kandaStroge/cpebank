@@ -41,6 +41,12 @@ Route::get('/admin/promotion', 'AdminIndexController@promotion');
 Route::post('/admin/promotion/del', 'AdminIndexController@promotion_del');
 Route::post('/admin/promotion/add', 'AdminIndexController@promotion_add');
 
-Route::post('/admin/promotion/edit', 'AdminIndexController@promotion_edit');
-Route::get('user','AdminUser@index');
-Route::get('user/officer/{id}','AdminUser@showOfficer');
+
+/*--- Admin User manage ---*/
+Route::get('/admin/user', 'AdminUserController@index');
+Route::get('/admin/user/pwd-print', 'AdminUserController@printpwd');
+Route::get('/admin/user/show', 'AdminUserController@show');
+Route::match(['get', 'post'], '/admin/user/add', 'AdminUserController@add');
+Route::match(['get', 'post'], '/admin/user/edit', 'AdminUserController@edit');
+Route::match(['get', 'post'], '/admin/user/edit/send', 'AdminUserController@edit_send');
+Route::post('/admin/user/delete', 'AdminUserContoller@delete');

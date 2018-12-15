@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 class AdminIndexController extends Controller
 {
     public function index(){
+        return view('admin.home.index',[
+            'title' => 'Admin Dashboard',
+            'content_header'=> 'Admin Dashboard',
+            'banks' => 'CPEBank',
+            'name' => 'OK',
+        ]);
 
     }
 

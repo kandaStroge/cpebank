@@ -9,18 +9,18 @@
                     'icon' => 'home'
                 ),
                 array(
-                    'name' => 'Loan',
+                    'name' => 'กู้ยืมเงิน',
                     'url' => 'admin/branch',
                     'icon' => 'file'
                 ),
                 array(
                     'name' => 'ข้อมูลลูกค้า',
-                    'url' => 'admin/branch',
+                    'url' => 'admin/user',
                     'icon' => 'shopping-cart'
                 ),
                 array(
                     'name' => 'โปรโมชั่น',
-                    'url' => 'admin//branch/manage',
+                    'url' => 'admin/promotion/manage',
                     'icon' => 'users'
                 ),
                 array(
