@@ -9,38 +9,77 @@
 
 @section('content')
 
+
     <form method="post" action="/admin/hq/edit/send">
 
         {{csrf_field()}}
         <div class="form-group">
-            <label for="exampleFormControlInput1">Headquarter Name</label>
-            <input type="text" class="form-control" name="title" id="exampleFormControlInput1"
-                   placeholder="Headquarter Name" value="{{$hqName[0]->hqName}}">
-            <input type="hidden" name="hqId" value="{{$hqId}}">
+            <label for="fname">First Name</label>
+            <input type="text" class="form-control" name="fname" id=""
+                   placeholder="First Name" value="{{$user->fname}}">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Provinces</label>
-            <select class="form-control" name="prov" id="exampleFormControlSelect1">
-                <option></option>
+            <label for="exampleFormControlInput1">Last Name</label>
+            <input type="text" class="form-control" name="lname" id=""
+                   placeholder="Last Name" value="{{$user->lname}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Date of birth</label>
+            <input type="date" class="form-control" name="dob" id=""
+                   placeholder="01-01-2019" value="{{$user->dob}}">
+        </div>
+        <div class="form-group">
 
-                @php
-                    $selected = '';
+            <label for="gender">Gender</label>
 
-                foreach ($provs as $pv){
-
-                        if ($pv->id == $vid){
-                        $selected = 'selected="selected"';
-                        }
-                        echo '<option value="'.$pv->id.'" '.$selected.'>'.$pv->name_en.'</option>';
-                    }
-
-                @endphp
-            </select>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="male" {{($user->gender === "male")?"checked":"" }}>
+                <label class="form-check-label" for="male">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female" {{($user->gender === "female")?"checked":"" }}>
+                <label class="form-check-label" for="female">
+                    Female
+                </label>
+            </div>
         </div>
 
         <div class="form-group">
-            <input type="submit" value="SAVE">
+            <label for="phone">Phone</label>
+            <input type="text" maxlength="10" class="form-control" name="phone" id=""
+                   placeholder="0812345678" value="{{$user->phone}}">
         </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" id=""
+                   placeholder="abc@gmail.com" value="{{$user->email}}">
+        </div>
+        <div class="form-group">
+            <label for="type">Type</label>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="customer" value="customer" {{(bool)($isOfficer)?"":"checked"}}>
+                <label class="form-check-label" for="customer">
+                    customer
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="officer" value="officer" {{((bool)$isOfficer)?"checked":""}}>
+                <label class="form-check-label" for="officer">
+                    officer
+                </label>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <input type="hidden" name="id" value="{{$user->id}}">
+            <button type="submit" class="btn btn-primary btn-lg col-3">Submit</button>
+            <button type="reset" class="btn btn-secondary btn-sm">clear</button>
+        </div>
+
     </form>
 
 @endsection

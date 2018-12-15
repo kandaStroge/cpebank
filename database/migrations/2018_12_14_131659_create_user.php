@@ -19,7 +19,7 @@ class CreateUser extends Migration
             $table->string('lname', 45);
             $table->date('dob')->nullable();
             $table->enum('gender', ['male', 'female']);
-            $table->string('phone', 10);
+            $table->string('phone', 10)->nullable();
             $table->text('home_addr')->nullable();
             $table->text('work_addr')->nullable();
             $table->string('email',60)->unique();

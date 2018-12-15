@@ -14,19 +14,29 @@
                     'icon' => 'file'
                 ),
                 array(
-                    'name' => 'ข้อมูลลูกค้า',
+                    'name' => 'จัดการสมาชิก',
                     'url' => 'admin/user',
                     'icon' => 'shopping-cart'
                 ),
                 array(
-                    'name' => 'โปรโมชั่น',
+                    'name' => 'จัดการโปรโมชั่น',
                     'url' => 'admin/promotion/manage',
                     'icon' => 'users'
                 ),
                 array(
-                    'name' => '4',
-                    'url' => 'admin/4',
+                    'name' => 'รายการที่ต้องทำ',
+                    'url' => 'admin/todo',
                     'icon' => 'bar-chart-2'
+                ),
+                array(
+                    'name' => '---',
+                    'url' => '#',
+                    'icon' => 'layers'
+                ),
+                array(
+                    'name' => 'ข้อมูลลูกค้า',
+                    'url' => 'admin/customer',
+                    'icon' => 'layers'
                 ),
                 array(
                     'name' => 'โปรโมชั่น/แนะนำบริการ',
@@ -34,7 +44,7 @@
                     'icon' => 'layers'
                 ),
                 array(
-                    'name' => '6',
+                    'name' => 'ติดตามบัชชี',
                     'url' => 'admin/6',
                     'icon' => 'layers'
                 ),
@@ -46,12 +56,16 @@
             );
             ?>
             @foreach($menu as $m)
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is($m['url']) ? 'active' : '' }}" href="{{url($m['url'])}}">
-                    <span data-feather="{{$m['icon']}}"></span>
-                    {{$m['name']}} @if( Request::is($m['url']))<span class="sr-only">(current)</span>@endif
-                </a>
-            </li>
+                @if($m['name']==="---")
+                    <div class="dropdown-divider"></div>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is($m['url']) ? 'active' : '' }}" href="{{url($m['url'])}}">
+                            <span data-feather="{{$m['icon']}}"></span>
+                            {{$m['name']}} @if( Request::is($m['url']))<span class="sr-only">(current)</span>@endif
+                        </a>
+                    </li>
+                @endif
             @endforeach
         </ul>
     </div>

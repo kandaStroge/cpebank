@@ -28,5 +28,21 @@ class CreateSampleDatabase extends Seeder
             'type' => 1,
             'user_id' => $id
         ]);
+
+        $id = DB::table('user')->insertGetId([
+            'id' => null,
+            'email' => str_random(10) . '@gmail.com',
+            'fname' => 'CustomerTest1',
+            'lname' => 'CustomerTestLname',
+            'password' => bcrypt('test'),
+            'dob' => date_create(),
+            'phone' => '0899998999',
+            'home_addr' => '123456456',
+            'work_addr' => '',
+            'gender' => 2
+        ]);
+        DB::table('customer')->insert([
+            'user_id' => $id
+        ]);
     }
 }

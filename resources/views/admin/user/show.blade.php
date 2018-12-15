@@ -34,14 +34,14 @@
                         <form action="./edit" method="post">
                             {{csrf_field()}}
                             <input class="btn btn-primary" type="submit" value="edit">
-                            <input type="hidden" name="bbId" value="{{$user->id}}">
+                            <input type="hidden" name="id" value="{{$user->id}}">
                         </form>
                     </td>
                     <td>
-                        <form action="./delete" method="post">
+                        <form action="./delete" method="post" onsubmit="return confirm('คุณแน่ใจแล้วที่จะลบผู้ใช้คนนี้');">
                             {{csrf_field()}}
-                            <input class="btn btn-danger" type="submit" value="Delete">
-                            <input type="hidden" name="bbId" value="{{$user->id}}">
+                            <input class="btn btn-danger " type="submit" value="Delete">
+                            <input type="hidden" name="id" value="{{$user->id}}">
                         </form>
                     </td>
                 </tr>

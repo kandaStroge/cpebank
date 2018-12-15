@@ -10,6 +10,8 @@ class Officer extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
 
+
+
     public function user(){
         return $this->hasOne('App\User');
     }

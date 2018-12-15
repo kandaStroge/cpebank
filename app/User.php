@@ -15,4 +15,5 @@ class User extends Model
         return $this->hasOne('App\Officer', 'user_id');
     }
 
+
 }
