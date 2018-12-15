@@ -39,8 +39,8 @@
                     'icon' => 'layers'
                 ),
                 array(
-                    'name' => '7',
-                    'url' => 'admin/7',
+                    'name' => 'Loan การกู้ยืม',
+                    'url' => 'admin/loan',
                     'icon' => 'layers'
                 ),
             );
