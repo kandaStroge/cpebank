@@ -38,13 +38,18 @@ Route::post('/admin/branch/delete', 'AdminBranchController@delete');
 Route::get('/admin/transcription', 'AdminIndexController@test4');
 Route::get('/admin/loan', 'AdminIndexController@test4');
 Route::get('/admin/user', 'AdminUserController@index');
-Route::get('/admin/promotion', 'AdminIndexController@test6');
+
 Route::get('/admin/todo', 'AdminIndexController@test7');
 
-
+Route::get('/admin/promotion', 'AdminIndexController@test6');
 Route::get('/admin/promotion/manage', 'AdminIndexController@promotion');
 Route::post('/admin/promotion/del', 'AdminIndexController@promotion_del');
 Route::post('/admin/promotion/add', 'AdminIndexController@promotion_add');
+
+
+Route::get('/admin/customer', 'AdminIndexController@customerDetail');
+Route::post('/admin/customer/request', 'AdminIndexController@customerDetailRequest');
+
 
 Route::get('/admin/loan', 'AdminLoanController@loan');
 Route::post('/admin/loan/add', 'AdminLoanController@add');

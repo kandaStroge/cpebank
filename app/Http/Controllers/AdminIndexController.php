@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Promotion;
+use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -67,6 +69,30 @@ class AdminIndexController extends Controller
 
         return response()->json([
             'status' => true,
+        ]);
+    }
+
+
+    public function customerDetail(){
+        $customer = Customer::all();
+
+        return view('admin.home.customerDetail',[
+            'title' => 'Customer',
+            'content_header'=> 'ข้อมูลลูกค้า',
+            'banks' => 'CPEBank',
+            'name' => 'OK',
+            'customer' => $customer,
+
+        ]);
+    }
+
+    public function customerDetailRequest(Request $request){
+        $user = User::find($request->get('id'));
+
+        
+        return response()->json([
+            'status' => true,
+            'user' => $user
         ]);
     }
 }
