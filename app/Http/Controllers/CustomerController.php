@@ -42,4 +42,13 @@ class CustomerController extends Controller
         ]);
     }
 
+
+    public function viewPromotion(Request $requests){
+        $promotion = Promotion::all();
+        return view('customer.promotion',[
+            'title' => 'Promotion',
+            'promotion' => $promotion,
+        ]);
+    }
+
 }

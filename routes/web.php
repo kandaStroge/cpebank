@@ -54,6 +54,7 @@ Route::group(['middleware' => ['role:officer']], function () {
     Route::get('/customer/sendIssue', 'CustomerController@sendIssue');
     Route::post('/customer/sendIssue', 'CustomerController@saveIssue');
 
+    Route::get('/customer/promotion', 'CustomerController@viewPromotion');
 
 
     Route::get('/admin/todolist', 'AdminTodolistController@todolist');
