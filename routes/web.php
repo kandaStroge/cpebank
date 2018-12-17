@@ -41,8 +41,8 @@ Route::group(['middleware' => ['role:officer']], function () {
     Route::get('/admin/user', 'AdminUserController@index');
     Route::get('/admin/promotion', 'AdminIndexController@test6');
     Route::get('/admin/todo', 'AdminIndexController@test7');
-    Route::get('/admin/user/officer', 'AdminOfficerController@index');
-    Route::get('/admin/user/customer', 'AdminCustomerController@index');
+
+
 
     Route::get('/admin/promotion/manage', 'AdminIndexController@promotion');
     Route::post('/admin/promotion/del', 'AdminIndexController@promotion_del');
@@ -72,11 +72,14 @@ Route::group(['middleware' => ['role:officer']], function () {
 
 
     /* --- Admin Officer Manage ---*/
-    Route::get('/admin/user/officer/show', 'AdminUserController@show');
+    Route::get('/admin/user/officer', 'AdminOfficerController@index');
+    Route::get('/admin/user/officer/show', 'AdminOfficerController@show');
+    Route::post('/admin/user/officer/add', 'AdminUserController@add');
     Route::post('/admin/user/officer/delete', 'AdminUserController@delete');
-    Route::match(['get', 'post'], '/admin/user/officer/add', 'AdminUserController@add');
-    Route::match(['get', 'post'], '/admin/user/officer/edit', 'AdminUserController@edit');
-    Route::match(['get', 'post'], '/admin/user/officer/edit/send', 'AdminUserController@edit_send');
+
+
+    /* --- Admin Customer Mangae ---*/
+    Route::get('/admin/user/customer', 'AdminCustomerController@index');
 
     /* --- Admin Transcript Manage ---*/
     Route::match(['get', 'post'], '/admin/transaction/deposit', 'AdminTransactionController@deposit');
