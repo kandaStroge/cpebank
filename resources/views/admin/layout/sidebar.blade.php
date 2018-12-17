@@ -5,28 +5,28 @@
             $menu = array(
                 array(
                     'name' => 'ฝากถอนเงิน',
-                    'url' => 'admin/hq',
-                    'icon' => 'home'
+                    'url' => 'admin/transaction',
+                    'icon' => 'dollar-sign'
                 ),
                 array(
                     'name' => 'กู้ยืมเงิน',
-                    'url' => 'admin/branch',
-                    'icon' => 'file'
+                    'url' => 'admin/loan',
+                    'icon' => 'bar-chart-2'
                 ),
                 array(
                     'name' => 'จัดการสมาชิก',
                     'url' => 'admin/user',
-                    'icon' => 'shopping-cart'
+                    'icon' => 'users'
                 ),
                 array(
                     'name' => 'จัดการโปรโมชั่น',
                     'url' => 'admin/promotion/manage',
-                    'icon' => 'users'
+                    'icon' => 'shopping-cart'
                 ),
                 array(
                     'name' => 'รายการที่ต้องทำ',
                     'url' => 'admin/todo',
-                    'icon' => 'bar-chart-2'
+                    'icon' => 'file'
                 ),
                 array(
                     'name' => '---',

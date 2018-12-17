@@ -13,10 +13,9 @@
             <thead>
             <tr>
                 <th class="col-1">Code</th>
-                <th class="col-3">Name</th>
+                <th class="col-6">Name</th>
                 <th class="col-3">Lastname</th>
                 <th class="col-3">email</th>
-                <th class="col-1">Reset Password</th>
                 <th class="col-1">EDT</th>
                 <th class="col-1">DEL</th>
 
@@ -31,13 +30,6 @@
                     <td>{{$user->fname}}</td>
                     <td>{{$user->lname}}</td>
                     <td>{{$user->email}}</td>
-                    <td>
-                        <form action="./pwd-reset" method="post">
-                            {{csrf_field()}}
-                            <input class="btn btn-primary" type="submit" value="Reset">
-                            <input type="hidden" name="id" value="{{$user->id}}">
-                        </form>
-                    </td>
                     <td>
                         <form action="./edit" method="post">
                             {{csrf_field()}}
