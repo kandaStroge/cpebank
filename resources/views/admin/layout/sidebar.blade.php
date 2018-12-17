@@ -39,10 +39,26 @@
                     'icon' => 'layers'
                 ),
                 array(
-                    'name' => 'Loan การกู้ยืม',
+                    'name' => 'Add Loan',
                     'url' => 'admin/loan',
                     'icon' => 'layers'
                 ),
+                array(
+                    'name' => 'show Loan',
+                    'url' => 'admin/loanshow',
+                    'icon' => 'layers'
+                ),
+				        array(
+                    'name' => ' report',
+                    'url' => 'admin/report',
+                    'icon' => 'layers'
+                ),
+                array(
+                    'name' => ' Showreport',
+                    'url' => 'admin/showreport',
+                    'icon' => 'layers'
+                ),
+
             );
             ?>
             @foreach($menu as $m)
