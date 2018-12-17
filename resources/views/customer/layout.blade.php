@@ -33,7 +33,7 @@
 								<li class="active"><a href="showbalance.html">show balance</a></li>
 								<li><a href="โปรโมชั่น.html">โปรโมชั่น/แนะนำบริการ</a></li>
 								<li><a href="showค้างจ่าย.html">show ค้างจ่าย</a></li>
-								<li><a href="คำร้องขอ.html">ส่งปัญหา/คำร้องขอ</a></li>
+								<li><a href="/customer/sendIssue">ส่งปัญหา/คำร้องขอ</a></li>
 							</ul>
 						</nav>
 						<div class="log_reg">
@@ -62,7 +62,7 @@
 				<li><a href="showbalance.html">show balance</a></li>
 				<li><a href="โปรโมชั่น.html">โปรโมชั่น/แนะนำบริการ</a></li>
 				<li><a href="showค้างจ่าย.html">show ค้างจ่าย</a></li>
-				<li><a href="คำร้องขอ.html">ส่งปัญหา/คำร้องขอ</a></li>
+				<li><a href="/customer/sendIssue">ส่งปัญหา/คำร้องขอ</a></li>
 			</ul></a></li>
 			</ul>
 		</nav>
