@@ -14,14 +14,14 @@ class CreateSampleDatabase extends Seeder
     {
         $id = DB::table('user')->insertGetId([
             'id' => null,
-            'email' => str_random(10) . '@gmail.com',
+            'email' => 'test@test.com',
             'fname' => 'NameTester',
             'lname' => 'adminLastName',
-            'password' => bcrypt('admintest'),
+            'password' => bcrypt('test'),
             'dob' => date_create(),
             'phone' => '0899999999',
-            'home_addr' => '123456456',
-            'work_addr' => 'rrrr',
+            'home_addr' => '',
+            'work_addr' => 'TestWork addr 210111',
             'gender' => 1
         ]);
         DB::table('officer')->insert([
@@ -31,7 +31,7 @@ class CreateSampleDatabase extends Seeder
 
         $id = DB::table('user')->insertGetId([
             'id' => null,
-            'email' => str_random(10) . '@gmail.com',
+            'email' => 'customer1@test.com',
             'fname' => 'CustomerTest1',
             'lname' => 'CustomerTestLname',
             'password' => bcrypt('test'),

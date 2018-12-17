@@ -36,7 +36,7 @@
                         <div class="form-group" id="">
                             <label for="balance">จำนวนเงินฝาก</label>
                             <div class="input-group" id="customer-number">
-                                <input type="number" min="0" step="0.01" class="form-control" name="balance"
+                                <input type="number" min="0" step="0.01" max="20000" class="form-control" name="balance"
                                        placeholder="Balance" required/>
 
 

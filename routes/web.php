@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'CustomerIndexController@index');
 Route::group(['middleware' => ['role:officer']], function () {
     //
 
