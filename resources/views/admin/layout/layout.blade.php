@@ -3,7 +3,7 @@
 <head>
     @include('admin.layout.head')
     @yield('head')
-    <title>@yield('title')</title>
+    <title>{{$title}}</title>
 </head>
 <body>
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">

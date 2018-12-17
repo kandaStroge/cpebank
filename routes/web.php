@@ -93,13 +93,22 @@ Route::group(['middleware' => ['role:officer']], function () {
     Route::match(['get', 'post'], '/admin/transaction/transfer', 'AdminTransactionController@transfer');
 
 
+    /* --- Customer Info -----*/
+    Route::get('/admin/customer', 'AdminIndexController@customerDetail');
+    Route::post('/admin/customer/request', 'AdminIndexController@customerDetailRequest');
+
 
 });
 Route::get('test', function () {
     return view('customer.login');
 });
+
 /*---- Authen System -----*/
 Route::get('/login', 'AuthenLoginController@index');
 Route::post('/login', 'AuthenLoginController@authen');
+Route::match(['get', 'post'], '/reset', 'AuthenLoginController@reset');
+Route::get('/reset/email', 'AuthenLoginController@reset_email');
+Route::get('/reset/auth@{token}', 'AuthenLoginController@reset_auth');
+Route::match(['get', 'post'],'/reset/auth', 'AuthenLoginController@reset_auth_form');
 Route::get('/logout', 'AuthenLoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
