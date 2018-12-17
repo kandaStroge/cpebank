@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Officer;
 use App\User;
 use function foo\func;
@@ -71,7 +72,6 @@ class AdminUserController extends Controller
                 'lname' => 'required',
                 'gender' => 'required',
                 'email' => 'email|required',
-                'type' => 'required'
             ]);
             $pwd = str_random(6);
             $hashhed = Hash::make($pwd);
@@ -82,16 +82,46 @@ class AdminUserController extends Controller
             $user->gender = $request->gender;
             $user->phone = $request->phone;
             $user->email = $request->email;
+            $user->work_addr = $request->work_addr;
+            $user->home_addr = $request->home_addr;
             $user->password = $hashhed;
+
             $user->save();
+
             if ($user) {
                 $id = $user->id;
-                if ($this->inserMember($id, $request->type)) {
+                $message = "";
+                $num_all_key = 0;
+                $success_key = 0;
+                // Add User into Customer
+                if ($request->has('isCustomer')) {
+                    $num_all_key += 1;
+                    if ($this->insert2Member('customer', $id)) {
+                        $success_key += 1;
+                        $message .= "เพิ่ม Customer สำเร็จ <br />";
+                    } else {
+                        $message .= "เพิ่ม Customer ไม่สำเร็จ <br />";
+                    }
+                }
+                // Add user into Officer
+                if ($request->has('isOfficer')) {
+                    $num_all_key += 1;
+                    if ($this->insert2Member('officer', $id)) {
+                        $success_key += 1;
+                        $message .= "เพิ่ม Officer  สำเร็จ <br />";
+                    } else {
+                        $message .= "เพิ่ม Officer ไม่สำเร็จ <br />";
+                    }
+                }
+
+                // Return Respond
+                if ($num_all_key == $success_key) {
                     return redirect('admin/user/pwd-print')->with('pwd', $pwd);
                 } else {
                     return redirect('admin/user/add')->with('report-message', [
                         'code' => 0,
-                        'message' => 'ผิดพลาดในขั้นตอน บันทึกลงฐานข้อมูลลูกค้า'
+                        'message' => 'บันทึกลงบางฐานข้อมูลไม่สำเร็จ กรุณาตรวจสอบ <br />' . $message .
+                            'แต่บัชชีของคุณถูกสร้างไว้แล้วด้วยรหัสผ่าน' . $pwd
                     ]);
                 }
 
@@ -105,7 +135,7 @@ class AdminUserController extends Controller
 
 
         } else {
-            return redirect('admin/hq/show')->with('report-message', [
+            return redirect('admin/user/show')->with('report-message', [
                 'code' => 0,
                 'message' => 'Error unknow method'
             ]);
@@ -120,12 +150,6 @@ class AdminUserController extends Controller
         ]);
     }
 
-    private function inserMember($id, $type)
-    {
-        $t = ($type === "officer") ? 'officer' : 'customer';
-        return $this->insert2Member($t, $id);
-
-    }
 
     public function delete(Request $request)
     {
@@ -133,13 +157,13 @@ class AdminUserController extends Controller
             'id' => 'numeric|required',
         ]);
 
-        if(Officer::where('user_id', $request->id)->exists()){
+        if (Officer::where('user_id', $request->id)->exists()) {
             return redirect('admin/user/show')->with('report-message', [
                 'code' => 0,
                 'message' => 'Error Cannot Deleted Officer'
             ]);
 
-        }else{
+        } else {
             $user = User::findOrFail($request->id)->delete();
             if ($user)
                 return redirect('admin/user/show')->with('report-message', [
@@ -163,23 +187,18 @@ class AdminUserController extends Controller
             'id' => 'numeric|required',
         ]);
         if ($request->isMethod('get')) {
-            return redirect('admin/hq/show')->with('report-message', [
+            return redirect('admin/user/show')->with('report-message', [
                 'code' => 0,
                 'message' => 'Connot direct edit'
             ]);
         } elseif ($request->isMethod('post')) {
             $user = User::findOrFail($request->id);
-            $isOfficer = Officer::where('user_id', $request->id)->exists();
 
-
-            $vid = $request['prov'];
 
             return view('admin.user.edit', [
                 'title' => 'แก้ไขข้อมูลผู้ใช้',
                 'content_header' => 'แก้ไขข้อมูลผู้ใช้',
                 'user' => $user,
-                'isOfficer' => $isOfficer,
-
 
             ]);
 
@@ -201,7 +220,54 @@ class AdminUserController extends Controller
             'lname' => 'required',
             'gender' => 'required',
             'email' => 'email|required',
-            'type' => 'required'
+        ]);
+
+        if ($request->isMethod('get')) {
+            return redirect('admin/user/show')->with('report-message', [
+                'code' => 0,
+                'message' => 'Connot direct edit'
+            ]);
+        } elseif ($request->isMethod('post')) {
+            $user = User::find($request->id);
+            $user->fname = $request->fname;
+            $user->lname = $request->lname;
+            $user->dob = $request->dob;
+            $user->gender = $request->gender;
+            $user->phone = $request->phone;
+            $user->email = $request->email;
+            $user->work_addr = $request->work_addr;
+            $user->home_addr = $request->home_addr;
+            $user->save();
+            if ($user) {
+
+                return redirect('admin/user/show')->with('report-message', [
+                    'code' => 1,
+                    'message' => 'แก้ไขผู้ใช้ #' . $user->id . ' คุณ' . $user->fname . ' ' . $user->lname . ' เรียบร้อยแล้ว'
+                ]);
+
+
+            } else {
+                return redirect('admin/user/show')->with('report-message', [
+                    'code' => 0,
+                    'message' => 'ผิดพลาด ไม่สามารถเข้าถึง ฐานข้อมูลผู้ใช้ได้'
+                ]);
+            }
+
+        } else {
+            return redirect('admin/user/show')->with('report-message', [
+                'code' => 0,
+                'message' => 'Error unknow method'
+            ]);
+        }
+
+
+    }
+
+    public function reset_pwd(Request $request)
+
+    {
+        $request->validate([
+            'id' => 'numeric|required',
         ]);
 
         if ($request->isMethod('get')) {
@@ -210,34 +276,19 @@ class AdminUserController extends Controller
                 'message' => 'Connot direct edit'
             ]);
         } elseif ($request->isMethod('post')) {
-
+            $user = User::findOrFail($request->id);
             $pwd = str_random(6);
             $hashhed = Hash::make($pwd);
-            $user = new User();
-            $user->fname = $request->fname;
-            $user->lname = $request->lname;
-            $user->dob = $request->dob;
-            $user->gender = $request->gender;
-            $user->phone = $request->phone;
-            $user->email = $request->email;
             $user->password = $hashhed;
-            $user->save();
-            if ($user) {
-                $id = $user->id;
-                if ($this->inserMember($id, $request->type)) {
-                    return redirect('admin/user/pwd-print')->with('pwd', $pwd);
-                } else {
-                    return redirect('admin/user/add')->with('report-message', [
-                        'code' => 0,
-                        'message' => 'ผิดพลาดในขั้นตอน บันทึกลงฐานข้อมูลลูกค้า'
-                    ]);
-                }
 
 
+
+            if ($user->save()) {
+                return redirect('admin/user/pwd-print')->with('pwd', $pwd);
             } else {
-                return redirect('admin/user/add')->with('report-message', [
+                return redirect('admin/user/show')->with('report-message', [
                     'code' => 0,
-                    'message' => 'ผิดพลาด ไม่สามารถเข้าถึง ฐานข้อมูลผู้ใช้ได้'
+                    'message' => 'ผิดพลาดบางประการ ทำให้ไม่สามารถเขียนรหัสผ่านใหม่ได้'
                 ]);
             }
 

@@ -62,32 +62,20 @@
             <label for="work_addr">Work Address</label>
             <textarea rows="4" cols="50" class="form-control" name="work_addr"></textarea>
         </div>
-        {{--<div class="form-group">--}}
-        {{--<label for="type">Type</label>--}}
-
-        {{--<div class="form-check">--}}
-        {{--<input class="form-check-input" type="radio" name="type" id="customer" value="customer" checked>--}}
-        {{--<label class="form-check-label" for="customer">--}}
-        {{--customer--}}
-        {{--</label>--}}
-        {{--</div>--}}
-        {{--<div class="form-check">--}}
-        {{--<input class="form-check-input" type="radio" name="type" id="officer" value="officer">--}}
-        {{--<label class="form-check-label" for="officer">--}}
-        {{--officer--}}
-        {{--</label>--}}
-        {{--</div>--}}
-        {{--</div>--}}
         <div class="form-group">
             <label for="type">Type</label>
 
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" name="isCustomer" id="customer">
-                <label class="custom-control-label" for="customer">Regist as CUSTOMER</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="customer" value="customer" checked>
+                <label class="form-check-label" for="customer">
+                    customer
+                </label>
             </div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" name="isOfficer" id="officer">
-                <label class="custom-control-label" for="officer">Regist as OFFICER</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="type" id="officer" value="officer">
+                <label class="form-check-label" for="officer">
+                    officer
+                </label>
             </div>
         </div>
 

@@ -1,64 +1,74 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class AdminIndexController extends Controller
+use App\Models\Loan;
+
+class AdminLoanController extends Controller
 {
-    public function index(){
 
-        return view('admin.home.index',[
-            'title' => 'Admin Dashboard',
-            'content_header'=> 'Admin Dashboard',
+    public function loan(){
+        $loan = Loan::all();
+        return view('admin.home.loan',[
+            'title' => 'Loan',
+            'content_header'=> 'Edit',
             'banks' => 'CPEBank',
             'name' => 'OK',
+            'loan' => $loan,
 
         ]);
     }
 
-    public function __invoke(){
-        return 'aaa';
-    }
-    public function test4(){
 
-        return view('admin.home.4',[
-            'title' => '4',
-            'content_header'=> '4',
-            'banks' => 'CPEBank',
-            'name' => 'OK',
+    public function add(Request $request){
+        $amount = $request->get('amount');
+        $interest_rate = $request->get('interest_rate');
+        $loan = new Loan;
+        $loan->amount = $amount;
+        $loan->interest_rate = $interest_rate;
+        $loan->time = $time;
+        $loan->payback = $payback;
+        $loan->user_id = $user_id;
+        $loan->asset_id = $asset_id;
+        $loan->save();
 
+        return response()->json([
+            'status' => true,
         ]);
     }
-    public function test5(){
 
-        return view('admin.home.5',[
-            'title' => 'Admin 5',
-            'content_header'=> '5',
-            'banks' => 'CPEBank',
-            'name' => 'OK',
+    public function del(Request $request){
+        $pid = $request->get('id');
+        $loan = Loan::find($pid);
 
+        $loan->delete();
+
+        return response()->json([
+            'status' => true,
         ]);
     }
-    public function test6(){
 
-        return view('admin.home.6',[
-            'title' => '6',
-            'content_header'=> '6',
-            'banks' => 'CPEBank',
-            'name' => 'OK',
 
+
+    public function edit(Request $request){
+        $loan = Loan::find($request->get('id'));
+        $amount = $request->get('amount');
+        $interest_rate = $request->get('interest_rate');
+
+        $loan->amount = $amount;
+        $loan->interest_rate = $interest_rate;
+        $loan->time = $time;
+        $loan->payback = $payback;
+        $loan->user_id = $user_id;
+        $loan->asset_id = $asset_id;
+        $loan->save();
+
+        return response()->json([
+            'status' => true,
         ]);
-
     }
-    public function test7(){
 
-        return view('admin.home.7',[
-            'title' => '7',
-            'content_header'=> '7',
-            'banks' => 'CPEBank',
-            'name' => 'OK',
-
-        ]);
-    }
 }

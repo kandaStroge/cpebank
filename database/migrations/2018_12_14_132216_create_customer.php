@@ -15,7 +15,7 @@ class CreateCustomer extends Migration
     {
         Schema::create('customer', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->float('balance')->default(0);
+            $table->decimal('balance',10,2)->default(0);
             $table->integer('user_id')->unique()->unsigned();
 
         });
