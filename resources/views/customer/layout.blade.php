@@ -30,7 +30,7 @@
 						<nav class="main_nav ml-auto mr-auto">
 							<ul class="d-flex flex-row align-items-center justify-content-start">
 								<li><a href="index.html"></a></li>
-								<li class="active"><a href="showbalance.html">show balance</a></li>
+								<li class="active"><a href="/customer/balance">Balance</a></li>
 								<li><a href="/customer/promotion">โปรโมชั่น/แนะนำบริการ</a></li>
 								<li><a href="showค้างจ่าย.html">show ค้างจ่าย</a></li>
 								<li><a href="/customer/sendIssue">ส่งปัญหา/คำร้องขอ</a></li>
@@ -38,7 +38,7 @@
 						</nav>
 						<div class="log_reg">
 								<div class="log_reg_content d-flex flex-row align-items-center justify-content-start">
-									<div class="login log_reg_text"><a href="index.html">Logout</a></div>
+									<div class="login log_reg_text"><a href="/logout">Logout</a></div>
 									
 								</div>
 							</div>
@@ -58,11 +58,11 @@
 		
 		<nav class="menu_nav">
 			<ul>
-				<li><a href="index.html">home</a></li>
-				<li><a href="showbalance.html">show balance</a></li>
-				<li><a href="/customer/promotion">โปรโมชั่น/แนะนำบริการ</a></li>
-				<li><a href="showค้างจ่าย.html">show ค้างจ่าย</a></li>
-				<li><a href="/customer/sendIssue">ส่งปัญหา/คำร้องขอ</a></li>
+			<li><a href="index.html"></a></li>
+			<li class="active"><a href="/customer/balance">Balance</a></li>
+			<li><a href="/customer/promotion">โปรโมชั่น/แนะนำบริการ</a></li>
+			<li><a href="showค้างจ่าย.html">show ค้างจ่าย</a></li>
+			<li><a href="/customer/sendIssue">ส่งปัญหา/คำร้องขอ</a></li>
 			</ul></a></li>
 			</ul>
 		</nav>

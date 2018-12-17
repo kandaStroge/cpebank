@@ -11,7 +11,19 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
+    public function showBalance(Request $request){
 
+        $token = $request->session()->get('login-token');
+        $user = User::where('token', $token)->first();
+       
+
+        return view('customer.balance',[
+            'title' => 'Balance',
+            'user' => $user,
+
+      
+        ]);
+    }
 
     public function saveIssue(Request $request){
 
@@ -31,7 +43,7 @@ class CustomerController extends Controller
 
     public function sendIssue(Request $request){
 
-        $token = $request->session()->get('token');
+        $token = $request->session()->get('login-token');
         $user = User::where('token', $token)->first();
 
         return view('customer.issue',[

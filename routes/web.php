@@ -48,12 +48,6 @@ Route::group(['middleware' => ['role:officer']], function () {
     Route::post('/admin/promotion/del', 'AdminIndexController@promotion_del');
     Route::post('/admin/promotion/add', 'AdminIndexController@promotion_add');
 
-    Route::get('/customer/sendIssue', 'CustomerController@sendIssue');
-    Route::post('/customer/sendIssue', 'CustomerController@saveIssue');
-
-    Route::get('/customer/promotion', 'CustomerController@viewPromotion');
-
-
     Route::get('/admin/todolist', 'AdminTodolistController@todolist');
     Route::post('/admin/todolist/del', 'AdminTodolistController@todolist_del');
     Route::post('/admin/todolist/add', 'AdminTodolistController@todolist_add');
@@ -97,6 +91,7 @@ Route::group(['middleware' => ['role:officer']], function () {
 
 
 });
+
 Route::get('test', function () {
     return view('customer.login');
 });
@@ -110,3 +105,11 @@ Route::get('/reset/auth@{token}', 'AuthenLoginController@reset_auth');
 Route::match(['get', 'post'],'/reset/auth', 'AuthenLoginController@reset_auth_form');
 Route::get('/logout', 'AuthenLoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::get('/customer/sendIssue', 'CustomerController@sendIssue');
+Route::post('/customer/sendIssue', 'CustomerController@saveIssue');
+
+Route::get('/customer/promotion', 'CustomerController@viewPromotion');
+Route::get('/customer/balance', 'CustomerController@showBalance');
