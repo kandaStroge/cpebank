@@ -15,7 +15,7 @@ class CustomerController extends Controller
 
     public function saveIssue(Request $request){
 
-        $token = $request->session()->get('token');
+        $token = $request->session()->get('login-token');
         $user = User::where('token', $token)->first();
         $issue = new Issue;
         $issue->title = $request->get('title');
