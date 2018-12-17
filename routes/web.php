@@ -92,6 +92,16 @@ Route::group(['middleware' => ['role:officer']], function () {
 
 });
 
+/*---------- Customer only use -------------*/
+Route::group(['middleware' => ['role:customer']], function () {
+    Route::get('/customer/test', function (){
+        return 'test';
+    });
+});
+
+
+
+
 Route::get('test', function () {
     return view('customer.login');
 });
