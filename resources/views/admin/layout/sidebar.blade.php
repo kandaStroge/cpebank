@@ -25,7 +25,7 @@
                 ),
                 array(
                     'name' => 'รายการที่ต้องทำ',
-                    'url' => 'admin/todo',
+                    'url' => 'admin/todolist',
                     'icon' => 'file'
                 ),
                 array(
@@ -44,8 +44,8 @@
                     'icon' => 'layers'
                 ),
                 array(
-                    'name' => 'Todolist',
-                    'url' => 'admin/todolist',
+                    'name' => 'ติดตามบัญชี',
+                    'url' => 'admin/6',
                     'icon' => 'layers'
                 ),
                 array(
