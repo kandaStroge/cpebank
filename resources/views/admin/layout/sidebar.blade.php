@@ -44,8 +44,8 @@
                     'icon' => 'layers'
                 ),
                 array(
-                    'name' => 'ติดตามบัชชี',
-                    'url' => 'admin/6',
+                    'name' => 'Todolist',
+                    'url' => 'admin/todolist',
                     'icon' => 'layers'
                 ),
                 array(

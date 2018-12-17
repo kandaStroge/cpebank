@@ -51,6 +51,10 @@ Route::group(['middleware' => ['role:officer']], function () {
     Route::post('/admin/promotion/del', 'AdminIndexController@promotion_del');
     Route::post('/admin/promotion/add', 'AdminIndexController@promotion_add');
 
+    Route::get('/admin/todolist', 'AdminTodolistController@todolist');
+    Route::post('/admin/todolist/del', 'AdminTodolistController@todolist_del');
+    Route::post('/admin/todolist/add', 'AdminTodolistController@todolist_add');
+    Route::post('/admin/todolist/edit', 'AdminTodolistController@todolist_edit');
 
     Route::post('/admin/loan/add', 'AdminLoanController@add');
     Route::post('/admin/loan/del', 'AdminLoanController@del');
