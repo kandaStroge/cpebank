@@ -40,7 +40,7 @@
                 ),
                 array(
                     'name' => 'โปรโมชั่น/แนะนำบริการ',
-                    'url' => 'admin/promotion',
+                    'url' => 'admin/promotion/manage',
                     'icon' => 'layers'
                 ),
                 array(
