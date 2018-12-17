@@ -17,6 +17,7 @@ class CheckOfficerRole
      */
     public function handle($request, Closure $next, $role)
     {
+
         if ($request->session()->has('token')) {
             $user = User::where('token', $request->session()->get('token'))->first();
             if ($role === "officer") {
@@ -36,6 +37,8 @@ class CheckOfficerRole
 
 
 
-        } return redirect('/login');
+        }
+        $lastest = $request->path();
+        return redirect('/login/')->with('lastest-url',$lastest);
     }
 }
