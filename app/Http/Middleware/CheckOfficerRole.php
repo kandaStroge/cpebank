@@ -26,7 +26,7 @@ class CheckOfficerRole
             if ($user != null) {
                 $request->session()->put('login-user-fname', $user->fname);
                 if ($role === "officer") {
-                    $officer = Officer::where('user_id', $user->id);
+                    $officer = Officer::where('user_id', $user->id)->first();
                     if ($officer != null) {
                         $request->session()->put('officer_id', $officer->id);
                         return $next($request);
