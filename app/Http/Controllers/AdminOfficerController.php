@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class AdminOfficerController extends Controller
 {
     public function index(){
-        return 'เพิ่มเข้าเป็นพนักงาน';
+        return  redirect('/admin/user/officer/show');
     }
 
     public function show(){
@@ -20,8 +20,8 @@ class AdminOfficerController extends Controller
         $officers = Officer::all();
 
         return view('admin.user.officer.add', [
-            'title' => 'Confirm Email',
-            'content_header' => 'Confirm Email',
+            'title' => 'จัดการพนักงาน',
+            'content_header' => 'จัดการพนักงาน',
             'users' => $users,
             'officers' => $officers
         ]);
@@ -29,8 +29,46 @@ class AdminOfficerController extends Controller
 
     public function add(Request $request){
         $request->validate([
-            'id'=>'required'
+            'uid'=>'required'
         ]);
+
+        $officer = new Officer();
+        $officer->user_id = $request->uid;
+        if ($officer->save()){
+            return redirect('admin/user/officer')->with('report-message', [
+                'code' => 1,
+                'message' => 'เพิ่มพนักงานใหม่เรียบร้อย'
+            ]) ;
+        }else{
+            return redirect('admin/user/officer')->with('report-message', [
+                'code' => 0,
+                'message' => 'มีบางอย่างผิดพลาด'
+            ]) ;
+        }
+
+
+    }
+
+    public function delete(Request $request){
+        $request->validate([
+            'fid'=>'required'
+        ]);
+
+
+        $officer = Officer::findOrFail($request->fid)->first();
+
+        if ($officer->delete()){
+            return redirect('admin/user/officer')->with('report-message', [
+                'code' => 1,
+                'message' => 'ลบพนักงานไปแล้ว'
+            ]) ;
+        }else{
+            return redirect('admin/user/officer')->with('report-message', [
+                'code' => 0,
+                'message' => 'มีบางอย่างผิดพลาด'
+            ]) ;
+        }
+
 
     }
 

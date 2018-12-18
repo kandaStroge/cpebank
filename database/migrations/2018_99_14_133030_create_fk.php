@@ -25,6 +25,10 @@ class CreateFk extends Migration
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
 
         });
+        Schema::table('todolist', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+
+        });
     }
 
     /**

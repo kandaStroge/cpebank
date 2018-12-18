@@ -25,6 +25,7 @@ class AuthenLoginController extends Controller
                 $user->token = $token;
                 $request->session()->put('login-token', $token);
                 $request->session()->put('login-user-fname', $user->fname);
+                $request->session()->put('login-user-id', $user->id);
                 $user->save();
 
                 return redirect('/')->with('report-message', [
@@ -58,6 +59,9 @@ class AuthenLoginController extends Controller
             }
             if ($request->session()->has('login-user-fname')) {
                 $request->session()->forget('login-user-fname');
+            }
+            if ($request->session()->has('login-user-id')) {
+                $request->session()->forget('login-user-id');
             }
             if ($request->session()->has('token')) {
                 $request->session()->forget('token');

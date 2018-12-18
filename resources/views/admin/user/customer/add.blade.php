@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
 
-            <button type="submit" class="btn btn-primary col-3">เพิ่มพนักงาน</button>
+            <button type="submit" class="btn btn-primary col-3">เพิ่มลูกค้า</button>
 
 
         </div>
@@ -41,17 +41,17 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($officers as $officer)
+        @foreach($customers as $customer)
             <tr>
-                <td>{{$officer->id}}</td>
-                <td>{{$officer->user->fname}}</td>
-                <td>{{$officer->user->lname}}</td>
-                <td>{{$officer->user->email}}</td>
+                <td>{{$customer->id}}</td>
+                <td>{{$customer->user->fname}}</td>
+                <td>{{$customer->user->lname}}</td>
+                <td>{{$customer->user->email}}</td>
                 <td>
                     <form action="./delete" method="post">
                         {{csrf_field()}}
                         <input type="submit" class="btn btn-danger" value="ลบ">
-                        <input type="hidden" name="fid" value="{{$officer->id}}">
+                        <input type="hidden" name="cid" value="{{$customer->id}}">
                     </form>
                 </td>
             </tr>
