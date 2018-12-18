@@ -24,7 +24,17 @@ class AdminUserController extends Controller
             [
                 'title' => 'แสดงรายการผู้ใช้',
                 'link' => 'user/show',
-                'color' => ''
+                'color' => 'btn-outline-warning'
+            ],
+            [
+                'title' => 'จัดการพนักงาน',
+                'link' => 'user/officer',
+                'color' => 'btn-outline-primary'
+            ],
+            [
+                'title' => 'จัดการลูกค้า',
+                'link' => 'user/customer',
+                'color' => 'btn-outline-success'
             ],
 
         ];
