@@ -59,6 +59,7 @@ Route::group(['middleware' => ['role:officer']], function () {
     Route::post('/admin/loan/add', 'AdminLoanController@add');
     Route::post('/admin/loan/del', 'AdminLoanController@del');
 
+    Route::get('/admin/event', 'AdminEventController@index');
 
     /*--- Admin User manage ---*/
     Route::get('/admin/user/show', 'AdminUserController@show');

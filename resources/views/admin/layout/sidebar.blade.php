@@ -53,6 +53,11 @@
                     'url' => 'admin/loan',
                     'icon' => 'layers'
                 ),
+                array(
+                    'name' => 'ปฏิทิน',
+                    'url' => 'admin/event',
+                    'icon' => 'layers'
+                ),
             );
             ?>
             @foreach($menu as $m)
