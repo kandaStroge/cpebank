@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Event;
 
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
-class EventController extends Controller
+class AdminEventController  extends Controller
 {
         public function event(){
             $event = event::all();
