@@ -79,12 +79,15 @@ Route::group(['middleware' => ['role:officer']], function () {
     /* --- Admin Officer Manage ---*/
     Route::get('/admin/user/officer', 'AdminOfficerController@index');
     Route::get('/admin/user/officer/show', 'AdminOfficerController@show');
-    Route::post('/admin/user/officer/add', 'AdminUserController@add');
-    Route::post('/admin/user/officer/delete', 'AdminUserController@delete');
+    Route::post('/admin/user/officer/add', 'AdminOfficerController@add');
+    Route::post('/admin/user/officer/delete', 'AdminOfficerController@delete');
 
 
-    /* --- Admin Customer Mangae ---*/
-    Route::get('/admin/user/customer', 'AdminCustomerController@index');
+    /* --- Admin Customer Manage ---*/
+    Route::get('/admin/user/customer', 'AdminUserCustomerController@index');
+    Route::get('/admin/user/customer/show', 'AdminUserCustomerController@show');
+    Route::post('/admin/user/customer/add', 'AdminUserCustomerController@add');
+    Route::post('/admin/user/customer/delete', 'AdminUserCustomerController@delete');
 
     /* --- Admin Transcript Manage ---*/
     Route::match(['get', 'post'], '/admin/transaction/deposit', 'AdminTransactionController@deposit');

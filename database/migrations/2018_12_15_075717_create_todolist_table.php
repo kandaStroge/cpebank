@@ -16,6 +16,8 @@ class CreateTodolistTable extends Migration
         Schema::create('todolist', function (Blueprint $table) {
             $table->increments('id');
             $table->text('description')->nullable();
+            $table->date('time_added');
+            $table->integer('user_id')->unsigned();
         });
     }
 
