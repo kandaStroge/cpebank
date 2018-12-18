@@ -56,8 +56,12 @@ Route::group(['middleware' => ['role:officer']], function () {
     Route::post('/admin/loan/add', 'AdminLoanController@add');
     Route::post('/admin/loan/del', 'AdminLoanController@del');
 
-    Route::get('/admin/event', 'AdminEventController@index');
+    Route::get('/admin/events', 'AdminEventController@index');
 
+    Route::get('/admin/tracker', 'AdminTrackerController@tracker');
+    Route::post('/admin/tracker/add', 'AdminTrackerController@add');
+    Route::post('/admin/tracker/del', 'AdminTrackerController@del');
+    
     Route::get('/admin/customer', 'AdminIndexController@customerDetail');
     Route::post('/admin/customer/request', 'AdminIndexController@customerDetailRequest');
 

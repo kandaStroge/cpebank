@@ -1,11 +1,26 @@
 <?php
 namespace App\Http\Controllers;
+use Illuminate\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Event;
+
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
-class AdminEventController extends Controller
+class EventController extends Controller
 {
-       public function index()
+        public function event(){
+            $event = event::all();
+            return view('admin.home.calendar',[
+                'title' => 'Calendar',
+                'content_header'=> 'Edit',
+                'banks' => 'CPEBank',
+                'name' => 'OK',
+                'calendar' => $calendar,
+
+            ]);
+        }
+
+       public function index(Request $request)
             {
                 $events = [];
                 $data = Event::all();

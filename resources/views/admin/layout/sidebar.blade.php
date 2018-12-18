@@ -45,7 +45,7 @@
                 ),
                 array(
                     'name' => 'ติดตามบัญชี',
-                    'url' => 'admin/6',
+                    'url' => 'admin/tracker',
                     'icon' => 'layers'
                 ),
                 array(
@@ -55,7 +55,7 @@
                 ),
                 array(
                     'name' => 'ปฏิทิน',
-                    'url' => 'admin/event',
+                    'url' => 'admin/events',
                     'icon' => 'layers'
                 ),
             );
