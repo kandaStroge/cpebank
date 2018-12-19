@@ -8,8 +8,10 @@
 @endsection
 
 @section('content')
+{{ csrf_field() }}
 
-<form method="post" action="/admin/loan/add">
+
+<form method="post" action="/admin/loan/edit_send">
         {{csrf_field()}}
 
 <div id="addDiv">
@@ -27,7 +29,7 @@
     </div>
     <div class="form-group">
       <label >Payback</label>
-      <input type="text" class="form-control" name="payback" id="payback">
+      <input type="number" class="form-control" name="payback" id="payback">
     </div>
     <div class="form-group">
       <label >user_id</label>
@@ -41,12 +43,6 @@
   </div>
 <button type="submit" class="btn btn-success"  >ADD</button>
 </form>
-
-
-
-
-
-
 
 
 @endsection

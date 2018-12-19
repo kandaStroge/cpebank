@@ -32,7 +32,7 @@
 								<li><a href="index.html"></a></li>
 								<li class="active"><a href="/customer/balance">Balance</a></li>
 								<li><a href="/customer/promotion">โปรโมชั่น/แนะนำบริการ</a></li>
-								<li><a href="showค้างจ่าย.html">show ค้างจ่าย</a></li>
+								<li><a href="/customer/loan">show ค้างจ่าย</a></li>
 								<li><a href="/customer/sendIssue">ส่งปัญหา/คำร้องขอ</a></li>
 							</ul>
 						</nav>
@@ -61,7 +61,7 @@
 			<li><a href="index.html"></a></li>
 			<li class="active"><a href="/customer/balance">Balance</a></li>
 			<li><a href="/customer/promotion">โปรโมชั่น/แนะนำบริการ</a></li>
-			<li><a href="showค้างจ่าย.html">show ค้างจ่าย</a></li>
+			<li><a href="/customer/loan">show ค้างจ่าย</a></li>
 			<li><a href="/customer/sendIssue">ส่งปัญหา/คำร้องขอ</a></li>
 			</ul></a></li>
 			</ul>

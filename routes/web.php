@@ -37,7 +37,7 @@ Route::group(['middleware' => ['role:officer']], function () {
 
 
     Route::get('/admin/transaction', 'AdminTransactionController@index');
-    Route::get('/admin/loan', 'AdminLoanController@loan');
+//    Route::get('/admin/loan', 'AdminLoanController@loan');
     Route::get('/admin/user', 'AdminUserController@index');
     Route::get('/admin/promotion', 'AdminIndexController@test6');
     Route::get('/admin/todo', 'AdminIndexController@test7');
@@ -53,8 +53,25 @@ Route::group(['middleware' => ['role:officer']], function () {
     Route::post('/admin/todolist/add', 'AdminTodolistController@todolist_add');
     Route::post('/admin/todolist/edit', 'AdminTodolistController@todolist_edit');
 
-    Route::post('/admin/loan/add', 'AdminLoanController@add');
-    Route::post('/admin/loan/del', 'AdminLoanController@del');
+//    Route::post('/admin/loan/add', 'AdminLoanController@add');
+//    Route::post('/admin/loan/del', 'AdminLoanController@del');
+
+    Route::get('/admin/loan', 'AdminLoanController@loan');
+    Route::get('/admin/loanshow', 'AdminLoanController@showloan');
+    Route::post('/admin/loan/add', 'AdminLoanController@loan_add');
+    Route::post('/admin/loan/del', 'AdminLoanController@loan_del');
+    Route::post('/admin/loan/edit', 'AdminLoanController@loan_edit');
+    //Route::post('/admin/loan/edit_send', 'AdminLoanController@loan_edit_send');
+
+    Route::get('/admin/asset', 'AdminAssetController@asset');
+    Route::post('/admin/asset/add', 'AdminAssetController@asset_add');
+    Route::post('/admin/asset/del', 'AdminAssetController@asset_del');
+
+
+    Route::get('/admin/report', 'AdminReportController@report');
+    Route::get('/admin/showreport', 'AdminReportController@showreport');
+    Route::post('/admin/report/del', 'AdminReportController@report_del');
+    Route::post('/admin/report/add', 'AdminReportController@report_add');
 
     Route::get('/admin/event', 'AdminEventController@index');
 
@@ -104,6 +121,8 @@ Route::group(['middleware' => ['role:customer']], function () {
     Route::get('/customer/test', function (){
         return 'test';
     });
+
+    Route::get('/customer/loan', 'CustomerLoanController@index');
 });
 
 

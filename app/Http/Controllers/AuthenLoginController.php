@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
+use App\Officer;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +28,18 @@ class AuthenLoginController extends Controller
                 $request->session()->put('login-token', $token);
                 $request->session()->put('login-user-fname', $user->fname);
                 $request->session()->put('login-user-id', $user->id);
+
                 $user->save();
+
+                $cf = Customer::where('user_id',$user->id)->first();
+                if ($cf != null){
+                    $request->session()->put('customer_id', $cf->id);
+                }
+
+                $of = Officer::where('user_id',$user->id)->first();
+                if ($of != null){
+                    $request->session()->put('officer_id', $of->id);
+                }
 
                 return redirect('/')->with('report-message', [
                     'code' => 1,
@@ -53,6 +66,9 @@ class AuthenLoginController extends Controller
             $request->session()->forget('login-token');
             if ($request->session()->has('officer_id')) {
                 $request->session()->forget('officer_id');
+            }
+            if ($request->session()->has('login-role')) {
+                $request->session()->forget('login-role');
             }
             if ($request->session()->has('customer_id')) {
                 $request->session()->forget('customer_id');

@@ -43,19 +43,44 @@
                     'url' => 'admin/promotion/manage',
                     'icon' => 'layers'
                 ),
-                array(
-                    'name' => 'ติดตามบัญชี',
-                    'url' => 'admin/6',
-                    'icon' => 'layers'
-                ),
+//                array(
+//                    'name' => 'ติดตามบัญชี',
+//                    'url' => 'admin/6',
+//                    'icon' => 'layers'
+//                ),
                 array(
                     'name' => 'Loan การกู้ยืม',
                     'url' => 'admin/loan',
                     'icon' => 'layers'
                 ),
+//                array(
+//                    'name' => 'ปฏิทิน',
+//                    'url' => 'admin/event',
+//                    'icon' => 'layers'
+//                ),
                 array(
-                    'name' => 'ปฏิทิน',
-                    'url' => 'admin/event',
+                    'name' => 'เพิ่มรายการบัญชีการกู้ยืม',
+                    'url' => 'admin/loan',
+                    'icon' => 'layers'
+                ),
+                array(
+                    'name' => 'แสดงรายการบัญชีการกู้ยืม',
+                    'url' => 'admin/loanshow',
+                    'icon' => 'layers'
+                ),
+                array(
+                    'name' => 'แจ้งปัญหา',
+                    'url' => 'admin/report',
+                    'icon' => 'layers'
+                ),
+                array(
+                    'name' => 'ดูรายงานปัญหา',
+                    'url' => 'admin/showreport',
+                    'icon' => 'layers'
+                ),
+                array(
+                    'name' => ' สินทรัพย์/จำนอง',
+                    'url' => 'admin/asset',
                     'icon' => 'layers'
                 ),
             );

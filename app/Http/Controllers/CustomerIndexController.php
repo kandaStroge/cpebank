@@ -7,13 +7,15 @@ use Illuminate\Http\Request;
 class CustomerIndexController extends Controller
 {
     public function index(){
-        if (session()->has('officer_id')){
-            return 'admin';
-        }
+//        dd(session());
 
         if (session()->has('customer_id')){
-            return 'cus';
+            return redirect('/customer/balance');
         }
+        if (session()->has('officer_id')){
+            return redirect('/admin');
+        }
+
         return view('welcome');
     }
 }
