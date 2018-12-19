@@ -8,6 +8,6 @@
 @endsection
 
 @section('content')
-    notinhg in index
+    nothing in index
 
 @endsection

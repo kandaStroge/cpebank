@@ -1,3 +1,14 @@
+@extends('admin.layout.layout')
+@section('title')
+    {{$title}}
+@endsection
+
+@section('content-header')
+    {{$content_header}}
+@endsection
+
+@section('content')
+
 @extends('layout')
 @section('style')
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -21,4 +32,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
 {!! $calendar->script() !!}
+@endsection
+
 @endsection
